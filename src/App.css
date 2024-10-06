@@ -1,0 +1,28 @@
+.tag-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));  
+    gap: 10px;  
+    margin: 20px 0;
+  }
+
+ .tag {
+    background-color: #989898;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    user-select: none; 
+  }
+  
+  .tag:hover {
+    background-color: #d1e7dd; 
+    transform: scale(1.05); 
+  }
+  
+  .tag:active {
+    background-color: #bcd0c7; 
+    transform: scale(1); 
+  }
