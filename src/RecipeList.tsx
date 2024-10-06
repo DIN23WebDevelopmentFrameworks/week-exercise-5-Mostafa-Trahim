@@ -1,12 +1,18 @@
 import React from "react";
-import Recipe from "./Recipe";
-import { IRecipeListProps } from "./types";
+import { IRecipe } from "./types";
 
-const RecipeList: React.FC<IRecipeListProps> = ({ recipes }) => {
+interface RecipeListProps {
+  recipes: IRecipe[];
+  onSelectRecipe: (recipe: IRecipe) => void; // New prop for selecting a recipe
+}
+
+const RecipeList: React.FC<RecipeListProps> = ({ recipes, onSelectRecipe }) => {
   return (
     <div>
       {recipes.map((recipe) => (
-        <Recipe key={recipe.id} recipeData={recipe} />
+        <div key={recipe.id} onClick={() => onSelectRecipe(recipe)}> 
+          <h4>{recipe.name}</h4>
+        </div>
       ))}
     </div>
   );

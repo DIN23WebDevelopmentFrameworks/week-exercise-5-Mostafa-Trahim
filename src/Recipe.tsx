@@ -1,15 +1,19 @@
 import React from "react";
 import { IRecipeProps } from "./types";
 
-const Recipe: React.FC<IRecipeProps> = ({ recipeData }) => {
+interface RecipeProps extends IRecipeProps {
+  onGoBack: () => void; 
+}
 
-    const btnClicked = () => {
-        window.history.back();
-    }
+const Recipe: React.FC<RecipeProps> = ({ recipeData, onGoBack }) => {
+
+  const btnClicked = () => {
+    onGoBack(); 
+  };
 
   return (
     <div>
-      <button onClick={btnClicked}>Go Back </button>
+      <button onClick={btnClicked}>Go Back</button>
       <h4>{recipeData.name}</h4>
       <p><strong>Ingredients:</strong> {recipeData.ingredients.join(", ")}</p>
       <p><strong>Instructions:</strong> {recipeData.instructions.join(", ")}</p>
